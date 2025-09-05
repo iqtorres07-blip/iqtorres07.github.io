@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José Manuel Torres Alvarez - Ingeniero Químico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --azul: #1a4b8c;
+            --azul-claro: #d0e3ff;
+            --crema: #f8f4e9;
+            --crema-oscuro: #e8dabf;
+            --texto: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--texto);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .tarjeta {
+            background: linear-gradient(135deg, var(--crema) 0%, var(--crema-oscuro) 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .header {
+            background-color: var(--azul);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .foto-perfil {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid var(--crema);
+            object-fit: cover;
+            margin: 0 auto 15px;
+            display: block;
+            background: #9ec2ff url('https://i.imgur.com/8Q0D7xR.png') no-repeat center;
+            background-size: cover;
+        }
+        
+        .nombre {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .titulo {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .experiencia {
+            background-color: var(--azul-claro);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: var(--texto);
+        }
+        
+        .contenido {
+            padding: 25px;
+        }
+        
+        .seccion {
+            margin-bottom: 25px;
+        }
+        
+        h2 {
+            color: var(--azul);
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--azul-claro);
+            font-size: 1.3rem;
+        }
+        
+        .servicios-lista {
+            list-style-type: none;
+        }
+        
+        .servicios-lista li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .servicios-lista li:before {
+            content: "•";
+            color: var(--azul);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .botones {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+        
+        .btn-email {
+            background-color: #EA4335;
+        }
+        
+        .btn-email:hover {
+            background-color: #D14836;
+        }
+        
+        .btn-linkedin {
+            background-color: #0077B5;
+        }
+        
+        .btn-linkedin:hover {
+            background-color: #005582;
+        }
+        
+        .btn-galeria {
+            background-color: var(--azul);
+        }
+        
+        .btn-galeria:hover {
+            background-color: #0d3a75;
+        }
+        
+        .btn-cv {
+            background-color: #6c5ce7;
+        }
+        
+        .btn-cv:hover {
+            background-color: #5649c9;
+        }
+        
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .galeria-item {
+            height: 120px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .galeria-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .qr-section {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--crema-oscuro);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .qr-code {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 15px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .nota {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: #666;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow: auto;
+            padding: 20px;
+        }
+        
+        .modal-contenido {
+            background-color: white;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .cerrar {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+        
+        .galeria-modal {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .galeria-modal-item {
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .galeria-modal-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .galeria-modal-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .disponibilidad {
+            background-color: var(--azul-claro);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .modal-imagen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 1002;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        
+        .modal-imagen-contenido {
+            max-width: 90%;
+            max-height: 80vh;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .cerrar-imagen {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 1003;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @media (max-width: 500px) {
+            .botones {
+                grid-template-columns: 1fr;
+            }
+            
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-contenido {
+                padding: 15px;
+                margin: 10px auto;
+            }
+            
+            .galeria-modal {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tarjeta">
+            <div class="badge">Disponible</div>
+            <div class="header">
+                <div class="foto-perfil"></div>
+                <h1 class="nombre">José Manuel Torres Alvarez</h1>
+                <p class="titulo">Ingeniero Químico - Especialista en Industria Láctea</p>
+                <div class="experiencia">15+ años de experiencia</div>
+            </div>
+            
+            <div class="contenido">
+                <div class="seccion">
+                    <h2>Servicios</h2>
+                    <ul class="servicios-lista">
+                        <li>Extensiones de quesos (100% leche, suero, imitaciones, análogos)</li>
+                        <li>Formulaciones, reformulaciones y estandarización</li>
+                        <li>Optimización de procesos lácteos</li>
+                        <li>Diseño, ejecución y monitoreo de proyectos lácteos</li>
+                        <li>Dimensionamiento de equipos</li>
+                    </ul>
+                </div>
+                
+                <div class="seccion">
+                    <h2>Logro Destacado</h2>
+                    <p>Desarrollo de una planta de productos lácteos desde cero hasta la obtención de los primeros clientes importantes.</p>
+                </div>
+                
+                <div class="seccion">
+                    <h2>Galería de Proyectos</h2>
+                    <div class="galeria">
+                        <div class="galeria-item" onclick="abrirImagen('https://i.imgur.com/vH76P5F.jpeg')">
+                            <img src="https://i.imgur.com/vH76P5F.jpeg" alt="Instalación de compresor">
+                        </div>
+                        <div class="galeria-item" onclick="abrirImagen('https://i.imgur.com/o6VfLqL.jpeg')">
+                            <img src="https://i.imgur.com/o6VfLqL.jpeg" alt="Cuartos fríos">
+                        </div>
+                        <div class="galeria-item" onclick="abrirImagen('https://i.imgur.com/z10GjXm.jpeg')">
+                            <img src="https://i.imgur.com/z10GjXm.jpeg" alt="Aislamiento">
+                        </div>
+                        <div class="galeria-item" onclick="abrirImagen('https://i.imgur.com/9t5V35C.jpeg')">
+                            <img src="https://i.imgur.com/9t5V35C.jpeg" alt="Equipos de planta">
+                        </div>
+                    </div>
+                    <button class="btn btn-galeria" onclick="abrirGaleria()" style="margin-top: 15px; width: 100%;">
+                        <i class="fas fa-images"></i> Ver más proyectos
+                    </button>
+                </div>
+                
+                <div class="disponibilidad">
+                    <p><strong>Disponibilidad inmediata</strong> para proyectos en la industria láctea</p>
+                </div>
+                
+                <div class="seccion">
+                    <h2>Contacto</h2>
+                    <div class="botones">
+                        <a href="https://wa.me/525530549063?text=Hola%20José%20Manuel,%20me%20interesa%20conocer%20más%20sobre%20tus%20servicios%20de%20ingeniería%20láctea" class="btn btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="mailto:iqtorres07@gmail.com?subject=Consulta%20de%20servicios%20lácteos" class="btn btn-email">
+                            <i class="far fa-envelope"></i> Email
+                        </a>
+                        <a href="https://www.linkedin.com/in/manuel-torres-0b84711a2/" class="btn btn-linkedin" target="_blank">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="#" class="btn btn-cv" id="cv-btn">
+                            <i class="far fa-file-pdf"></i> Descargar CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="qr-section">
+                <h2>Comparte mi tarjeta</h2>
+                <div class="qr-code">
+                    <canvas id="qrCanvas"></canvas>
+                </div>
+                <p class="nota">Escanea este código QR para guardar mi contacto o compartirlo con otros</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modalGaleria" class="modal">
+        <div class="modal-contenido">
+            <button class="cerrar" onclick="cerrarModal()">&times;</button>
+            <h2>Galería de Proyectos</h2>
+            <div class="galeria-modal">
+                <div class="galeria-modal-item" onclick="abrirImagen('https://i.imgur.com/vH76P5F.jpeg')">
+                    <img src="https://i.imgur.com/vH76P5F.jpeg" alt="Instalación de compresor">
+                </div>
+                <div class="galeria-modal-item" onclick="abrirImagen('https://i.imgur.com/o6VfLqL.jpeg')">
+                    <img src="https://i.imgur.com/o6VfLqL.jpeg" alt="Cuartos fríos">
+                </div>
+                <div class="galeria-modal-item" onclick="abrirImagen('https://i.imgur.com/z10GjXm.jpeg')">
+                    <img src="https://i.imgur.com/z10GjXm.jpeg" alt="Aislamiento">
+                </div>
+                <div class="galeria-modal-item" onclick="abrirImagen('https://i.imgur.com/9t5V35C.jpeg')">
+                    <img src="https://i.imgur.com/9t5V35C.jpeg" alt="Equipos de planta">
+                </div>
+                <div class="galeria-modal-item" onclick="abrirImagen('https://i.imgur.com/l6qj8W8.jpeg')">
+                    <img src="https://i.imgur.com/l6qj8W8.jpeg" alt="Descremadora en línea">
+                </div>
+                <div class="galeria-modal-item" onclick="abrirImagen('https://i.imgur.com/8Q0D7xR.png')">
+                    <img src="https://i.imgur.com/8Q0D7xR.png" alt="Foto profesional">
+                </div>
+                <div class="galeria-modal-item" onclick="abrirImagen('https://i.imgur.com/4gWj4n3.jpeg')">
+                    <img src="https://i.imgur.com/4gWj4n3.jpeg" alt="Aislamiento con recubrimiento">
+                </div>
+                <div class="galeria-modal-item" onclick="abrirImagen('https://i.imgur.com/l6rXlXG.jpeg')">
+                    <img src="https://i.imgur.com/l6rXlXG.jpeg" alt="Laboratorios">
+                </div>
+                <div class="galeria-modal-item" onclick="abrirImagen('https://i.imgur.com/uC7uM4S.jpeg')">
+                    <img src="https://i.imgur.com/uC7uM4S.jpeg" alt="Complementos calderas">
+                </div>
+                <div class="galeria-modal-item" onclick="abrirImagen('https://i.imgur.com/393Jz22.jpeg')">
+                    <img src="https://i.imgur.com/393Jz22.jpeg" alt="Aislamiento vapor">
+                </div>
+                <div class="galeria-modal-item" onclick="abrirImagen('https://i.imgur.com/79k6rR3.jpeg')">
+                    <img src="https://i.imgur.com/79k6rR3.jpeg" alt="Implementación CIP">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalImagen" class="modal-imagen">
+        <button class="cerrar-imagen" onclick="cerrarImagen()">&times;</button>
+        <img id="imagenAmpliada" class="modal-imagen-contenido" src="" alt="Imagen ampliada">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.0/qrcode.min.js"></script>
+    <script>
+        // Generar código QR
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generar QR
+            const canvas = document.getElementById('qrCanvas');
+            QRCode.toCanvas(canvas, window.location.href, {
+                width: 130,
+                margin: 1
+            }, function(error) {
+                if (error) console.error(error);
+            });
+            
+            // Configurar botón de CV
+            document.getElementById('cv-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                const link = document.createElement('a');
+                link.href = 'data:application/pdf;base64,JVBERi0xLjcKJeLjz9MKMyAwIG9iago8PC9UeXBlIC9QYWdlCi9QYXJlbnQgMSAwIFIKL1Jlc291cmNlcyAyIDAgUgovTWVkaWFCb3ggWzAgMCA1OTUgODQyXQovQ29udGVudHMgNCAwIFIKPj4KZW5kb2JqCjQgMCBvYmoKPDwvTGVuZ3RoIDU+PnN0cmVhbQoKcQoKZW5kc3RyZWFtCmVuZG9iago1IDAgb2JqCjw8Ci9UeXBlIC9DYXRhbG9nCi9QYWdlcyAxIDAgUgo+PgplbmRvYmoKMSAwIG9iago8PC9UeXBlIC9QYWdlcwovS2lkcyBbMyAwIFJdCi9Db3VudCAxCj4+CmVuZG9iagoyIDAgb2JqCjw8L1Byb2NTZXQgWy9QREYgL1RleHQgL0ltYWdlQl0KL0ZvbnQgPDwKPj4KL1hPYmplY3QgPDwKPj4KPj4KZW5kb2JqCnhyZWYKMCA2CjAwMDAwMDAwMDAgMDAwMDAgZgowMDAwMDAwMDA5IDAwMDAwIG4KMDAwMDAwMDAxNSAwMDAwMCBuCjAwMDAwMDAwMjEgMDAwMDAgbgowMDAwMDAwMDM0IDAwMDAwIG4KMDAwMDAwMDA2MSAwMDAwMCBuCnRyYWlsZXIKPDwKL1Jvb3QgNSAwIFIKL1NpemUgNgovSUQgWzxmZDhiMjY2YzJkZDQ0Y2Q0OTVlYTM5M2U3ZGY0M2JlMT48ZmQ4YjI2NmMyZGQ0NGNkNDk5ZWEzOTNlN2RmNDNiZTE+XQo+PgpzdGFydHhyZWYKODIKJSVFT0YK';
+                link.download = 'CV_JoséManuelTorres.pdf';
+                link.click();
+            });
+        });
+        
+        // Funciones para la galería modal
+        function abrirGaleria() {
+            document.getElementById('modalGaleria').style.display = 'block';
+        }
+        
+        function cerrarModal() {
+            document.getElementById('modalGaleria').style.display = 'none';
+        }
+        
+        // Funciones para la imagen ampliada
+        function abrirImagen(src) {
+            document.getElementById('imagenAmpliada').src = src;
+            document.getElementById('modalImagen').style.display = 'block';
+        }
+        
+        function cerrarImagen() {
+            document.getElementById('modalImagen').style.display = 'none';
+        }
+        
+        // Cerrar modales al hacer clic fuera del contenido
+        window.onclick = function(event) {
+            const modal = document.getElementById('modalGaleria');
+            const modalImagen = document.getElementById('modalImagen');
+            
+            if (event.target === modal) {
+                cerrarModal();
+            }
+            
+            if (event.target === modalImagen) {
+                cerrarImagen();
+            }
+        };
+    </script>
+</body>
+</html>
